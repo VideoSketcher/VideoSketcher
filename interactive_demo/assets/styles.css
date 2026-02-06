@@ -1,0 +1,155 @@
+:root {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.panel {
+    width: 320px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel h1 {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.field.inline {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.field textarea,
+.field input,
+.field select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #cbd5f5;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.prompt-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.prompt-actions button {
+    border: 1px solid #cbd5f5;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.buttons button {
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
+}
+
+.buttons button.secondary {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.tool-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.tool-toggle button {
+    border: 1px solid #cbd5f5;
+    border-radius: 8px;
+    padding: 6px 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tool-toggle button.is-active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.status {
+    min-height: 32px;
+    padding: 8px 12px;
+    background: #e0f2fe;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #0369a1;
+}
+
+.stage {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#sketchCanvas {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #cbd5f5;
+    background: #ffffff;
+    touch-action: none;
+    display: block;
+}
+
+#sketchCanvas.is-playing {
+    cursor: not-allowed;
+    border-color: #f97316;
+}
+
+@media (max-width: 960px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .panel {
+        width: 100%;
+    }
+}
+

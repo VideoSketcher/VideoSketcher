@@ -1,0 +1,50 @@
+# Video Regression Training Configuration
+# Based on CausVid ODE training but adapted for video data
+
+# Model configuration
+model_name: causal_wan
+generator_task: causal_video  # or "bidirectional_video"
+
+# Data configuration
+dataset_repeat: 100  # Number of times to repeat the dataset per epoch
+#time_division_factor: 4
+#time_division_remainder: 1
+
+# Training configuration
+max_grad_norm: 10.0
+num_epochs: 10
+# Model paths (update these paths according to your setup)
+generator_ckpt: null  # Path to pretrained generator checkpoint
+# generator_ckpt: "path/to/pretrained/generator.pt"
+
+# Model training settings
+generator_grad:
+  model: true
+denoising_step_list:
+  - 1000
+  - 757
+  - 522
+  - 0
+mixed_precision: true
+
+# Extra settings
+no_save: false
+
+# Distributed training
+sharding_strategy: "full"
+
+lr: 2.0e-06
+beta1: 0.9
+beta2: 0.999
+
+# generator_fsdp_wrap_strategy: "transformer"
+generator_fsdp_transformer_module: "WanCausalTransformerBlock"
+# text_encoder_fsdp_wrap_strategy: "full"
+text_encoder_fsdp_transformer_module: null
+
+gradient_checkpointing: true
+num_frame_per_block: 3
+warp_denoising_step: false
+
+
+

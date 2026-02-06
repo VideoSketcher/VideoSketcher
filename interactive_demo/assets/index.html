@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Sketch Demo</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body data-refine-on-run="true" data-keep-raw-prompt="true">
+    <main class="container">
+        <section class="panel">
+            <h1>Interactive Sketch Demo</h1>
+            <label class="field">
+                <span>Sketch Concept</span>
+                <textarea id="promptInput" rows="1" placeholder="Describe the concept...">house</textarea>
+            </label>
+            <label class="field inline">
+                <span>Resolution</span>
+                <select id="resolutionSelect">
+                    <option value="832x480">832 × 480 (default)</option>
+                    <option value="640x640">640 × 640</option>
+                </select>
+            </label>
+            <label class="field inline">
+                <span>Frames per run</span>
+                <input type="range" id="modelFrames" min="12" step="12" max="69" value="24">
+                <span id="modelFramesValue">24</span>
+            </label>
+            <label class="field inline">
+                <span>Overlap frames</span>
+                <input type="range" id="overlapFrames" min="9" step="12" max="69" value="33">
+                <span id="overlapFramesValue">33</span>
+            </label>
+            <label class="field inline">
+                <span>Seed</span>
+                <input type="number" id="seedInput" placeholder="Random" step="1" value="0">
+            </label>
+            <div class="buttons">
+                <button id="runBtn">Run</button>
+                <button id="clearCanvasBtn" class="secondary">Clear Canvas</button>
+            </div>
+            <!-- <p class="hint">Clearing the canvas now resets the cached session state.</p> -->
+            <div class="status" id="statusBox">Idle</div>
+            <label class="field inline">
+                <span>Brush size</span>
+                <input type="range" id="brushSize" min="1" max="30" value="7" style="width: auto;">
+                <span id="brushSizeValue">7 px</span>
+            </label>
+            <label class="field inline">
+                <span>Brush color</span>
+                <input type="color" id="brushColor" value="#0f172a">
+            </label>
+            <label class="field inline">
+                <span>Tool</span>
+                <div class="tool-toggle">
+                    <button type="button" id="toolBrushBtn">Brush</button>
+                    <button type="button" id="toolEraserBtn">Eraser</button>
+                </div>
+            </label>
+            <label class="field inline">
+                <span>Eraser size</span>
+                <input type="range" id="eraserSize" min="4" max="80" value="24" style="width: auto;">
+                <span id="eraserSizeValue">24 px</span>
+            </label>
+        </section>
+        <section class="stage">
+            <canvas id="sketchCanvas" style="align-self: center;"></canvas>
+        </section>
+    </main>
+    <script src="/static/app.js" type="module"></script>
+</body>
+</html>
+
